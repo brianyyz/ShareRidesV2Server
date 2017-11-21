@@ -858,7 +858,7 @@ Parse.Cloud.afterSave(constants.teamRequestsClassName, function(request) {
         if (approved) {
             var alertMessage = "Your request to join a team has been approved";
             if (team.id == teamToTry) {
-                alertMessage = "Welcome to the Try it Out team. This team is for getting to know how the app works by creating and playing with Rides. Rides created in it by others are not real. When you are ready please leave this team and join or create a real one."
+                alertMessage = "Welcome to the Try it Out team.\n\nThis team is for getting to know how the app works by creating and playing with Rides. \n\nRides created in it by others are not real. \n\nWhen you are ready please leave this team and join or create a real one."
             }
             return Parse.Push.send({
                 where: notifyQuery,
