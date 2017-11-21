@@ -841,6 +841,8 @@ Parse.Cloud.afterSave(constants.teamRequestsClassName, function(request) {
     var notifyTeamOwnerQuery = new Parse.Query(Parse.Installation);
     notifyTeamOwnerQuery.equalTo(constants.userFieldName, teamOwner);
                       
+    var teamToTry = '7ZoDZ1DtiC'
+    
     console.log("TeamRequests: afterSave: value of team id " + team.id + " and request user id " + requestOwner.id + " approved " + approved);
 
     // if the team request is approved we'll add the Team to the user's Installation otherwise remove it
@@ -854,10 +856,15 @@ Parse.Cloud.afterSave(constants.teamRequestsClassName, function(request) {
     addRemoveUserTeam({ "team": team, "user": requestOwner, "operation": operation }).then(function() {
         console.log("TeamRequests: afterSave: addRemoveUserTeam " + operation + " success");
         if (approved) {
+            var alertMessage = "Your request to join a team has been approved";
+            if (team.id == teamToTry) {
+                alertMessage = "Your request to join the Try it Out team has been approved. This team is for getting to know how the app works. Rides created in it by others are not real."
+            }
             return Parse.Push.send({
                 where: notifyQuery,
                 data: {
-                    alert: "Your request to join a team has been approved",
+                    alert: alertMessage,
+                    //alert: "Your request to join a team has been approved",
                     badge: 1,
                     "key": "11",
                     'content-available': 1,
