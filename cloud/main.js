@@ -840,8 +840,10 @@ Parse.Cloud.afterSave(constants.teamRequestsClassName, function(request) {
     notifyQuery.equalTo(constants.userFieldName, requestOwner);
     var notifyTeamOwnerQuery = new Parse.Query(Parse.Installation);
     notifyTeamOwnerQuery.equalTo(constants.userFieldName, teamOwner);
-                      
-    var teamToTry = '7ZoDZ1DtiC'
+
+    // using the test it out team id to modify the successfully joined a team message to 
+    // explain that the team is not real.                   
+    var teamToTry = 'TGkULlQQuu'
     
     console.log("TeamRequests: afterSave: value of team id " + team.id + " and request user id " + requestOwner.id + " approved " + approved);
 
