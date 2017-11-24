@@ -49,10 +49,7 @@ var api = new ParseServer({
       // Your domain from mailgun.com
       domain: 'mg.bmacdonald.ca',
       // Your API key from mailgun.com
-      apiKey: 'key-21ee2691d18187a14f97055e14a4bce1'
-      // sandbox domain and key
-      // domain: 'sandbox7e9039c7d7a44674ac174667c4d351f8.mailgun.org',
-      // apiKey: 'key-21ee2691d18187a14f97055e14a4bce1'
+      apiKey: process.env.MAILGUN_PRIVATE_API_KEY     || 'myMailgunAPIKey'
     }
   }
   // add comma above
