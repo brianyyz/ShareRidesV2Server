@@ -34,7 +34,7 @@ var api = new ParseServer({
           production: true
         },
         {
-          pfx: './certs/APNSProductionCertificateExpires20191024.p12',
+          pfx: './certs/APNSDevelopmentCertificateExpires20191024.p12',
           topic: 'edu.self.brianmacdonald.ShareRides',
           production: false
         }
