@@ -29,12 +29,12 @@ var api = new ParseServer({
   push: {
       ios: [
         {
-          pfx: './certs/APNSProductionCertificateExpires20180913.p12',
+          pfx: './certs/APNSProductionCertificateExpires20191024.p12',
           topic: 'edu.self.brianmacdonald.ShareRides',
           production: true
         },
         {
-          pfx: './certs/APNSProductionCertificateExpires20180913.p12',
+          pfx: './certs/APNSProductionCertificateExpires20191024.p12',
           topic: 'edu.self.brianmacdonald.ShareRides',
           production: false
         }
